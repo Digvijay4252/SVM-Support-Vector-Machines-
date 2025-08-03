@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Pass Prediction</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #eef2f3;
+        text-align: center;
+        padding: 40px;
+      }
+      h1 {
+        color: #333;
+      }
+      form {
+        display: inline-block;
+        background-color: #fff;
+        padding: 20px 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .result {
+        margin-top: 20px;
+        font-size: 20px;
+        color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Student Pass Prediction</h1>
+    <form method="POST">
+      <label>Hours Studied:</label><br />
+      <input type="number" name="hours_studied" step="0.1" required /><br />
+
+      <label>Attendance (%):</label><br />
+      <input type="number" name="attendance" step="0.1" required /><br />
+
+      <label>Assignments Completed:</label><br />
+      <input
+        type="number"
+        name="assignments_completed"
+        step="1"
+        required
+      /><br />
+
+      <label>Sleep Hours:</label><br />
+      <input type="number" name="sleep_hours" step="0.1" required /><br />
+
+      <input type="submit" value="Predict" />
+    </form>
+
+    {% if prediction %}
+    <div class="result"><strong>Prediction:</strong> {{ prediction }}</div>
+    {% endif %}
+  </body>
+</html>
